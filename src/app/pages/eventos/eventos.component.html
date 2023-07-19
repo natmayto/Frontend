@@ -1,0 +1,96 @@
+
+<div class="row animated fadeIn fast">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                
+                <input type="text" class="form-control" placeholder="Búsqueda de eventos" #txtTermino (keyup)="buscarEvento(txtTermino.value)"/>
+              
+            </div>
+          </div>
+      </div>
+  </div>
+  
+  <div class="row animated fadeIn fast" *ngIf="cargar">
+    <div class="col-12">
+        
+        <div class="alert alert-info text-center">
+            <h4 class="alert-heading">Cargando...</h4>
+            <i class="fa fa-spin fa-refresh fa-2x"></i>
+            <p class="mb-0">Espere un momento por favor, cargando datos...</p>
+        </div>
+  
+      </div>
+  </div>
+  
+  <div class="row" *ngIf="!cargar">
+    <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+  
+     
+            <div class="row">
+              <div class="col-8">
+                  <h4 class="card-title"> Eventos . Hay un total de {{eventos.length}} eventos </h4>
+                  <h6 class="card-subtitle">Eventos registrados</h6>
+            </div>
+  
+            <div>
+              <button class="btn btn-info" routerLink="/dashboard/evento/nuevo">
+                
+                Nuevo</button> <!--routerLink="/dashboard/crear-articulo"-->
+          </div>
+         </div>
+  
+     
+  
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                 
+                        <th class="text-center">Nombre</th>
+                        <th class="w100 text-nowrap">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let evento of eventos">
+                   
+  
+                      <td>    
+                        <input type="text" class="form-control" placeholder="Nombre del objeto" [(ngModel)]="evento.nombre"/>
+                        </td>
+  
+    
+                        <!-- <td>
+                          <input type="text" class="form-control" placeholder="Descripción" [(ngModel)]="evento.descripcion"/>
+                        </td> -->
+                       
+                       
+                      
+                        <td class="text-nowrap text-center">
+                          <button class="btn btn-default" [routerLink]="['/dashboard','evento', evento._id ]" >
+                            <a class="cursor" data-toggle="tooltip" data-original-title="Guardar"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
+                            Actualizar
+                          </button>
+                          <button class="btn btn-info" (click)="eliminarEvento(evento)">
+                            <a class="cursor" data-toggle="tooltip" data-original-title="Eliminar"> <i class="fa fa-close text-default"></i> </a>
+                         Eliminar
+                          </button>
+                          </td>
+                    </tr>
+                   
+                </tbody>
+            </table>
+        </div>
+  
+        <!-- <button class="btn btn-secondary">Anterior</button>
+        &nbsp;
+        <button class="btn btn-secondary">Siguiente</button> -->
+        
+  
+    </div>
+    </div>
+    </div>
+  </div>
+  

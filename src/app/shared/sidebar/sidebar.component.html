@@ -1,0 +1,64 @@
+<!-- ============================================================== -->
+<!-- Left Sidebar - style you can find in sidebar.scss  -->
+<!-- ============================================================== -->
+
+
+ <aside class="left-sidebar">
+    <!-- Sidebar scroll-->
+    <div class="scroll-sidebar">
+        <!-- Sidebar navigation-->
+        <nav class="sidebar-nav">
+      
+            <ul id="sidebarnav">
+
+                
+
+ 
+                <li class="user-profile">
+                    <a class="waves-effect waves-dark nav" href="#" aria-expanded="false">
+                      <img [src]="usuario.imagenUrl"  alt="user" /><span
+                            class="hide-menu"><strong>{{usuario.nombre}}</strong></span></a>
+                    <ul>
+                        <li><a routerLink="./perfil" routerLinkActive="active" class="nav"> Mi Perfil </a></li>
+                        <li><a routerLink="configuracion-cuenta" routerLinkActive="active" class="nav"> Configuración de Cuenta</a></li>
+                        <li> <a routerLink="./usuarios" class="nav" routerLinkActive="active">Usuario</a></li>
+                        <li><a routerLink="/login" routerLinkActive="active" class="nav"> Cerrar Sesión</a></li>
+                    </ul>
+                </li> 
+
+
+
+
+                 <li class="nav-devider nav"> 
+
+               
+                    <li class="user-profile">
+                      <a class="waves-effect waves-dark" href="#" aria-expanded="false"><img
+                                src="../../../assets/images/icon/income.png"  alt="user"/>
+                                <!-- <h6>   <span class="hide-menu">Opciones</span>  </h6> </a>  -->
+                                <span class="hide-menu nav"> <strong>Opciones</strong></span>  </a> 
+                        <ul>
+                            <li>
+                                <a routerLink="./eventos" class="nav" routerLinkActive="active"> Eventos </a>
+                              </li>
+                              <li>
+                                <a routerLink="./articulos"class="nav" routerLinkActive="active"> Articulos </a>
+                              </li>
+                              <li>
+                                <a routerLink="./inventario" class="nav" routerLinkActive="active"> Inventario </a>
+                              </li>
+                              <li>
+                                <a routerLink="./reservas" class="nav" routerLinkActive="active">Reservas </a>
+                              </li>
+                        </ul>
+                    </li> 
+    
+
+
+
+            </ul>
+        </nav>
+
+    </div>
+
+</aside>

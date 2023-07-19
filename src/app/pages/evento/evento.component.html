@@ -1,0 +1,72 @@
+
+                <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Evento</h4>
+                        <h6 class="card-subtitle">Registro y actualización de datos</h6>
+                        <form class="form-horizontal p-t-20" (submit)="guardarEvento()" [formGroup]="eventoForm">
+                            <div class="form-group row">
+                                <label for="exampleInputuname3" class="col-sm-3 control-label">Ingrese el nuevo nombre del evento</label>
+                                <div class="col-sm-9">
+                                    <div class="input-group">
+                                        <div class="input-group-addon"></div>
+                                        <input type="text" class="form-control" formControlName="nombre" id="exampleInputuname3" placeholder="Nombre del evento">
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="form-group row">
+                                <label for="exampleInputuname3" class="col-sm-3 control-label">Descripción</label>
+                                <div class="col-sm-9">
+                                    <div class="input-group">
+                                        <div class="input-group-addon"></div>
+                                        <input type="text" class="form-control" formControlName="descripcion" id="exampleInputEmail3" placeholder="Descripción del evento">
+                                    </div>
+                                </div>
+                            </div> -->
+                            <div class="form-group row">
+                                <label for="web" class="col-sm-3 control-label">Artículo</label>
+                                <div class="col-sm-9">
+                                    <div class="input-group">
+                                        
+                                        <select class="form-control" formControlName="articulo">
+
+                                            <option value="">
+                                                Seleccione un artículo
+                                            </option>
+
+                                            <option *ngFor="let articulo of articulos" [value]="articulo._id">
+                                                    {{articulo.producto}}
+                                            </option>
+
+                                        </select>
+
+                                    </div>
+                                </div>
+                            </div>
+                            
+
+
+                            <div class="form-group row m-b-0">
+                                <div class="offset-sm-3 col-sm-9">
+                                    <button type="submit" [disabled]="eventoForm.invalid" class="btn btn-success waves-effect waves-light">
+                                        Crear Evento</button>
+                                </div>
+                            </div>
+                        </form>
+                    
+                    </div>
+                </div>
+            </div>
+
+            <div class="col animated fadeIn fast" *ngIf="articuloSeleccionado">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title caja">Artículos</h2>
+                        <h3 class="card-subtitle" style="font-weight: 800;">{{articuloSeleccionado.producto}}</h3>
+                        <h3 class="card-subtitle">{{articuloSeleccionado.cantidad}}</h3>
+            </div>
+
+
+        </div>
+  

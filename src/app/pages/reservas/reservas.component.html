@@ -1,0 +1,101 @@
+
+<div class="row animated fadeIn fast">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                
+                <input type="text" class="form-control" placeholder="Búsqueda de reservas" #txtTermino (keyup)="buscarReserva(txtTermino.value)"/>
+              
+            </div>
+          </div>
+      </div>
+  </div>
+  
+  <div class="row animated fadeIn fast" *ngIf="cargar">
+    <div class="col-12">
+        
+        <div class="alert alert-info text-center">
+            <h4 class="alert-heading">Cargando...</h4>
+            <i class="fa fa-spin fa-refresh fa-2x"></i>
+            <p class="mb-0">Espere un momento por favor, cargando datos...</p>
+        </div>
+  
+      </div>
+  </div>
+  
+  <div class="row" *ngIf="!cargar">
+    <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+  
+     
+          <div class="row">
+              <div class="col-8">
+                   <h4 class="card-title">Listado de reservas. Hay un total de {{reservas.length}} reservas </h4>
+                    <h6 class="card-subtitle">Listado registrado en la aplicación</h6>
+             </div> 
+          
+          <div>
+            <button class="btn btn-info" (click)="abrirModal()">Nuevo</button>
+        </div>
+       </div>
+  
+     
+  
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                 
+                        <th class="text-center">Nombre</th>
+                        <th class="text-center">Fecha</th>
+                        <th class="text-center">Descripción</th>
+                        <th class="w100 text-nowrap">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let reserva of reservas">
+                   
+  
+                      <td>    
+                        <input type="text" class="form-control" placeholder="Nombre del objeto" style="font-weight:500;" [(ngModel)]="reserva.nombre"/>
+                        </td>
+  
+                        <td>
+                          <input type= "datetime-local" 
+                           class="form-control" placeholder="Cantidad de objetos" [(ngModel)]="reserva.fecha"/>
+                         <h3 style="font-weight:100px;">{{reserva.fecha | date:"medium"}}</h3> 
+                        </td>
+  
+                        <td>
+                          <input type="text" class="form-control" placeholder="Descripción" [(ngModel)]="reserva.descripcion"/>
+                        </td>
+                       
+                       
+                      
+                        <td class="text-nowrap text-center">
+                          <button class="btn btn-default" (click)="guardarCambios(reserva)">
+                            <a class="cursor" data-toggle="tooltip" data-original-title="Guardar"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
+                            Actualizar
+                          </button>
+                          <button class="btn btn-info" (click)="eliminarReserva(reserva)">
+                            <a class="cursor" data-toggle="tooltip" data-original-title="Eliminar"> <i class="fa fa-close text-default"></i> </a>
+                         Eliminar
+                          </button>
+                          </td>
+                    </tr>
+                   
+                </tbody>
+            </table>
+        </div>
+  
+        <!-- <button class="btn btn-secondary">Anterior</button>
+        &nbsp;
+        <button class="btn btn-secondary">Siguiente</button> -->
+        
+  
+    </div>
+    </div>
+    </div>
+  </div>
+  
