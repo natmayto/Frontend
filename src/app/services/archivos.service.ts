@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import Swal from 'sweetalert2';
+
 
 const base_url = environment.base_url;
 
